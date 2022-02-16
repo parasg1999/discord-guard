@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const Profile = ({ user }) => {
   return (
@@ -7,13 +8,14 @@ const Profile = ({ user }) => {
         <div>
           <span>Hey {user.username}! 👋</span>
           <span>
-            Not you? <a href="/api/auth/logout">Sign Out</a>
+            Not you? <Link href="/api/auth/logout">Sign Out</Link>
           </span>
         </div>
         <Image
           src={`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`}
           width={50}
           height={50}
+          alt={`profile`}
         />
       </div>
 
@@ -28,9 +30,9 @@ const Profile = ({ user }) => {
       </div>
 
       <div>
-        <a href={process.env.NEXT_PUBLIC_DISCORD_SERVER} target="_blank">
+        <Link href={process.env.NEXT_PUBLIC_DISCORD_SERVER} target="_blank">
           Open Discord
-        </a>
+        </Link>
       </div>
     </div>
   );
