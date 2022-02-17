@@ -1,0 +1,41 @@
+.userBanner {
+  display: flex;
+  justify-content: space-between;
+
+  .left {
+    display: flex;
+    flex-direction: column;
+    .colorName {
+      color: rgba(79, 70, 229, 1);
+    }
+  }
+}
+
+.userInfo {
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.discordButton {
+  margin-top: 0.5rem;
+  color: white;
+  background-color: rgb(79, 70, 229);
+  border: none;
+  border-radius: 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: initial;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(67, 56, 202);
+  }
+
+  .discordImage {
+    height: 1.25rem;
+    margin-right: 0.75rem;
+  }
+}

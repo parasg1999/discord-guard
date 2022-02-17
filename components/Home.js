@@ -1,4 +1,8 @@
 import axios from "axios";
+import styles from "../styles/Home.module.scss";
+import Paper from "./Paper";
+import discord from "../public/discord.svg";
+import Image from "next/image";
 
 const Home = () => {
   const signInWithDiscord = () => {
@@ -6,13 +10,16 @@ const Home = () => {
   };
 
   return (
-    <div>
-      <p>
+    <Paper>
+      <p className={styles.text}>
         Sign in with your Discord account to join the community &amp; manage
         your server preferences.
       </p>
-      <button onClick={signInWithDiscord}>Sign in with discord</button>
-    </div>
+      <button className={styles.discordButton} onClick={signInWithDiscord}>
+        <img src="/discord.svg" className={styles.discordImage} />
+        Sign in with Discord
+      </button>
+    </Paper>
   );
 };
 

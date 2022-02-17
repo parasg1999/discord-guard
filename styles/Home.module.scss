@@ -1,0 +1,29 @@
+.text {
+  font-size: 0.875rem;
+  color: rgba(75, 85, 99, 1);
+  line-height: 1.25rem;
+}
+
+.discordButton {
+  margin-top: 0.5rem;
+  color: white;
+  background-color: rgb(79, 70, 229);
+  border: none;
+  border-radius: 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: initial;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(67, 56, 202);
+  }
+
+  .discordImage {
+    height: 1.25rem;
+    margin-right: 0.75rem;
+  }
+}
