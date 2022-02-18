@@ -1,12 +1,32 @@
 .userBanner {
   display: flex;
   justify-content: space-between;
+  margin-top: 1rem;
 
   .left {
     display: flex;
     flex-direction: column;
-    .colorName {
-      color: rgba(79, 70, 229, 1);
+    align-items: flex-start;
+
+    .main {
+      font-size: 1.125rem;
+      font-weight: bold;
+      line-height: 1.75rem;
+      .colorName {
+        color: rgb(79, 70, 229);
+      }
+    }
+
+    .sub {
+      font-size: 0.75rem;
+      line-height: 1rem;
+      color: rgb(107, 114, 128);
+      margin-top: 0.25rem;
+
+      .link {
+        text-decoration: underline;
+        cursor: pointer;
+      }
     }
   }
 }
@@ -14,28 +34,110 @@
 .userInfo {
   border-top: 1px solid #e5e7eb;
   border-bottom: 1px solid #e5e7eb;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  text-align: start;
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
+  padding-bottom: 2rem;
+
+  .infoBlock {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+
+    .infoHeader {
+      color: rgb(107, 114, 128);
+      font-weight: 500;
+    }
+
+    .infoContent {
+      margin-top: 0.25rem;
+      color: rgb(17, 24, 39);
+    }
+  }
 }
 
-.discordButton {
-  margin-top: 0.5rem;
-  color: white;
-  background-color: rgb(79, 70, 229);
-  border: none;
-  border-radius: 0.4rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem;
+.editableInfo {
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
   font-size: 0.875rem;
-  font-weight: initial;
-  cursor: pointer;
+  line-height: 1.25rem;
+  text-align: start;
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
+  padding-bottom: 2rem;
 
-  &:hover {
-    background-color: rgb(67, 56, 202);
+  .infoBlock {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+
+    .infoHeader {
+      color: rgb(55, 65, 81);
+      font-weight: 500;
+    }
+
+    .infoInput {
+      margin-top: 0.25rem;
+      border: 1px solid rgb(209, 213, 219);
+      color: rgb(17, 24, 39);
+      border-radius: 0.4rem;
+      padding: 0.5rem 0.75rem;
+
+      &.disabled {
+        background-color: rgb(243, 244, 246);
+      }
+    }
+  }
+}
+
+.buttons {
+  display: flex;
+
+  .editButton {
+    margin-top: 0.5rem;
+    color: rgb(55, 65, 81);
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(209, 213, 219);
+    flex: 1;
+    border-radius: 0.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: initial;
+    cursor: pointer;
+    margin-right: 0.75rem;
+
+    &:hover {
+      background-color: rgb(249, 250, 251);
+    }
   }
 
-  .discordImage {
-    height: 1.25rem;
-    margin-right: 0.75rem;
+  .discordButton {
+    margin-top: 0.5rem;
+    flex: 1;
+    color: white;
+    background-color: rgb(79, 70, 229);
+    border: none;
+    border-radius: 0.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: initial;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgb(67, 56, 202);
+    }
+
+    .discordImage {
+      height: 1.25rem;
+      margin-right: 0.75rem;
+    }
   }
 }

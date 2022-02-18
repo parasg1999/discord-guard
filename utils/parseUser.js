@@ -17,9 +17,6 @@ export function parseUser(ctx) {
 
   try {
     const { iat, exp, ...user } = verify(token, JWT_SECRET);
-
-    console.log({ iat, exp, ...user });
-
     return user;
   } catch (e) {
     return null;

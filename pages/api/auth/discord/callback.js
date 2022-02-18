@@ -1,6 +1,8 @@
 import jwt from "jsonwebtoken";
 import cookie from "cookie";
 import axios from "axios";
+import dbConnect from "../../../../lib/dbConnect";
+import User from "../../../../models/User";
 
 const {
   DISCORD_CLIENT_SECRET,
@@ -47,8 +49,6 @@ export default async (req, res) => {
     scope,
   }).toString();
 
-  console.log(body);
-
   // Request our access token, defaulting it to null if something goes wrong
   const { access_token = null, ...a } = await axios({
     url: "https://discord.com/api/oauth2/token",
@@ -70,13 +70,23 @@ export default async (req, res) => {
       headers: { Authorization: `Bearer ${access_token}` },
     });
 
-    console.log(currentUser);
-
     if (!("id" in currentUser)) {
       return res.redirect(OAUTH_URI);
     }
 
-    const token = jwt.sign(currentUser, JWT_SECRET, { expiresIn: "24h" });
+    await dbConnect();
+
+    let user = await User.findOneAndUpdate(
+      { id: currentUser.id },
+      { ...currentUser },
+      { new: true }
+    );
+
+    if (!user) {
+      user = await User.create({ ...currentUser, name: currentUser.username });
+    }
+
+    const token = jwt.sign(user.toJSON(), JWT_SECRET, { expiresIn: "24h" });
 
     await res.setHeader(
       "Set-Cookie",
@@ -89,7 +99,7 @@ export default async (req, res) => {
       })
     );
   } catch (e) {
-    console.log("uhuh");
+    console.log(e);
   }
 
   // Redirect back to the homepage

@@ -1,6 +1,11 @@
 import mongoose from "mongoose";
 
 const UserSchema = new mongoose.Schema({
+  username: {
+    // As in discord
+    type: String,
+    required: true,
+  },
   name: {
     type: String,
     required: true,
@@ -10,14 +15,14 @@ const UserSchema = new mongoose.Schema({
     required: true,
   },
   discriminator: {
-    type: Number,
+    type: String,
     required: true,
   },
   id: {
     type: String,
     required: true,
   },
-  image: {
+  avatar: {
     type: String,
     required: true,
   },
